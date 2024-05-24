@@ -1,0 +1,584 @@
+{
+	"info": {
+		"_postman_id": "496023d2-624f-4730-b59d-6ed35aeb2ba6",
+		"name": "cp3-seguradora",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30957512"
+	},
+	"item": [
+		{
+			"name": "Pessoa",
+			"item": [
+				{
+					"name": "Pessoas",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"João\",\n    \"sobrenome\": \"Silva\",\n    \"email\": \"joao.silva@exemplo.com\",\n    \"nascimento\": \"2000-01-01\",\n    \"tipo\": \"PF\",\n    \"documento\": {\n        \"numero\": \"12345678901\",\n        \"tipo\": \"CPF\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:80/pessoas",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pessoas by example",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:80/pessoas?nome=João",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"pessoas"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "João"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pessoas by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:80/pessoas/1",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"pessoas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pessoas/Fotos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "src",
+									"value": "foto.jpg",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/lucas/Downloads/foto.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:80/pessoas/1/fotos",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"pessoas",
+								"1",
+								"fotos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pessoas/enderecos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"logradouro\": \"Avenida Paulista\",\n    \"numero\": \"1000\",\n    \"complemento\": \"Apt 101\",\n    \"cep\": \"01310-000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:80/pessoas/1/enderecos",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"pessoas",
+								"1",
+								"enderecos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Documento",
+			"item": [
+				{
+					"name": "Documentos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numero\": \"12345678901\",\n    \"tipo\": \"CPF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:80/documentos",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"documentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Documento by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:80/documentos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"documentos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Documentos/fotos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "src",
+									"value": "foto_documento.jpg",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/lucas/Downloads/foto.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:80/documentos/1/fotos",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"documentos",
+								"1",
+								"fotos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Imovel",
+			"item": [
+				{
+					"name": "Imoveis",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"valor\": 500000.00,\n    \"descricao\": \"Apartamento de luxo\",\n    \"metrosQuadrados\": 150.00,\n    \"quartos\": 3,\n    \"banheiros\": 2,\n    \"vagasGaragem\": 2,\n    \"tipo\": \"IMOVEL\",\n    \"endereco\": {\n        \"logradouro\": \"Avenida Brasil\",\n        \"numero\": \"1500\",\n        \"complemento\": \"Bloco A, Apt 202\",\n        \"cep\": \"20941-010\"\n    },\n    \"matricula\": \"1234567890\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:80/imoveis",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"imoveis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Imoveis by example",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:80/imoveis?descricao=Luxo",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"imoveis"
+							],
+							"query": [
+								{
+									"key": "descricao",
+									"value": "Luxo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Imoveis by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:80/imoveis/1",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"imoveis",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Imoveis/fotos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "src",
+									"value": "foto_imovel.jpg",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/lucas/Downloads/foto.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:80/imoveis/1/fotos",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"imoveis",
+								"1",
+								"fotos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Seguro",
+			"item": [
+				{
+					"name": "Seguros",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"premio\": 1500.00,\n    \"valor\": 100000.00,\n    \"inicio\": \"2024-02-20\",\n    \"fim\": \"2025-02-20\",\n    \"contratante\": {\n        \"id\": 1\n    },\n    \"objeto\": {\n        \"id\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:80/seguros",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"seguros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seguros by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:80/seguros/1",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"seguros",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seguros by example",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:80/seguros?inicio=2024-02-20&fim=2025-02-20",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"seguros"
+							],
+							"query": [
+								{
+									"key": "inicio",
+									"value": "2024-02-20"
+								},
+								{
+									"key": "fim",
+									"value": "2025-02-20"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Veiculo",
+			"item": [
+				{
+					"name": "Veiculos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"chassis\": \"123ABC456DEF789GHI0\",\n    \"placa\": \"ABC1234\",\n    \"modelo\": \"Esportivo\",\n    \"cor\": \"Vermelho\",\n    \"marca\": \"Ferrari\",\n    \"ano\": \"2023\",\n    \"valor\": 1000000.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:80/veiculos",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"veiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Veiculos by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:80/veiculos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"veiculos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Veiculos by example",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:80/veiculos?marca=Ferrari",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"veiculos"
+							],
+							"query": [
+								{
+									"key": "marca",
+									"value": "Ferrari"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Veiculos/fotos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "src",
+									"value": "foto_veiculo.jpg",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/lucas/Downloads/foto.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:80/veiculos/1/fotos",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"veiculos",
+								"1",
+								"fotos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
